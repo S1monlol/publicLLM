@@ -1,0 +1,1 @@
+# Simple tool that scans with censys to find public AI LLMS API's (currently just ollama)
