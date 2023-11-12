@@ -6,7 +6,6 @@ import (
 	"os"
 	"strings"
 
-	// "github.com/go-resty/resty/v2"
 	"github.com/go-resty/resty/v2"
 	"github.com/joho/godotenv"
 )
@@ -14,8 +13,7 @@ import (
 func ollama() {
 	godotenv.Load()
 	value := os.Getenv("CENSYS")
-	fmt.Println(value)
-	
+
 	client := resty.New()
 
 	resp, err := client.R().
@@ -28,8 +26,6 @@ func ollama() {
 		fmt.Println(err)
 		return
 	}
-
-	fmt.Println(string(resp.Body()))
 
 	var result ApiResponse
 	json.Unmarshal([]byte(resp.Body()), &result)
